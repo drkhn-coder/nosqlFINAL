@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📋 Мои задачи</h1>
+        <button id="logout">🚪 Выйти</button>
+    </header>
+
+    <div class="filters">
+        <input type="text" id="search" placeholder="🔍 Поиск по задачам...">
+        <select id="filterStatus">
+            <option value="all">Все</option>
+            <option value="completed">Выполненные</option>
+            <option value="pending">Ожидающие</option>
+        </select>
+    </div>
+
+    <div id="taskList" class="tasks-container">
+        <!-- Сюда будут добавляться задачи -->
+    </div>
+
+    <button id="addTask">➕ Добавить задачу</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
