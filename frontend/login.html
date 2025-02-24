@@ -21,7 +21,7 @@
         <h2 id="form-title">Вход</h2>
         <div class="input-group"><input type="email" id="email" placeholder="Email"></div>
         <div class="input-group"><input type="password" id="password" placeholder="Пароль"></div>
-        <input type="text" id="username" placeholder="Введите имя" hidden>
+        <input type="text" id="username" placeholder="Введите имя" disabled hidden>
 
         <button id="auth-button">Войти</button>
         <p class="toggle" id="toggle-form">Нет аккаунта? Зарегистрироваться</p>
@@ -40,6 +40,7 @@
             authButton.textContent = isLogin ? "Войти" : "Зарегистрироваться";
             toggleForm.textContent = isLogin ? "Нет аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти";
             username.toggleAttribute('hidden');
+            username.toggleAttribute('disabled');
         });
 
         authButton.addEventListener("click", async () => {
