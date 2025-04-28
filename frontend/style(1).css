@@ -1,0 +1,222 @@
+/* Футуристический стиль с фиолетовыми тонами */
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+}
+
+.container {
+    background: linear-gradient(135deg, #2a2a72, #009ffd);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+input, button, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input {
+    background-color: #0f3460;
+    color: #e0e0e0;
+}
+
+button {
+    background-color: #8338ec;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #3a0ca3;
+}
+
+#tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+#tasks-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    background-color: #0f3460;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-date {
+    font-size: 12px;
+    color: #aaa;
+    margin-left: 10px;
+}
+/* 📌 Основные настройки */
+body {
+    background: linear-gradient(135deg, #1a1a2e, #3b2f66); /* Фиолетовый градиент */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* 📌 Контейнер */
+  .container {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1); /* Прозрачный эффект */
+    backdrop-filter: blur(10px); /* Размытие */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(147, 112, 219, 0.5); /* Фиолетовое свечение */
+  }
+  
+  /* 📌 Заголовок */
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #c084fc;
+  }
+  
+  /* 📌 Кнопки */
+  button {
+    background: #8a2be2;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+  }
+  
+  button:hover {
+    background: #a855f7;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+  }
+  
+  /* 📌 Карточки задач */
+  .task {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+  }
+  
+  .task:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* 📌 Анимация */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container, .task {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  body {
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы кнопки переносились */
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+}
+/* Заголовок */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Контейнер для задач */
+.tasks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Карточка задачи */
+.task {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Кнопки */
+button {
+    background: #a855f7;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #9333ea;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход / Регистрация</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #1a1a2e; color: #fff; }
+        .container { width: 350px; background: #16213e; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+        h2 { text-align: center; margin-bottom: 20px; }
+        .input-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 10px; border: none; border-radius: 5px; }
+        button { width: 100%; padding: 10px; border: none; border-radius: 5px; background: #e94560; color: white; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #ff2e63; }
+        .toggle { text-align: center; margin-top: 10px; cursor: pointer; color: #08d9d6; }
+    </style>
+</head>
+<body>
+    <div class="container" id="auth-container">
+        <h2 id="form-title">Вход</h2>
+        <div class="input-group"><input type="email" id="email" placeholder="Email"></div>
+        <div class="input-group"><input type="password" id="password" placeholder="Пароль"></div>
+        <input type="text" id="username" placeholder="Введите имя" disabled hidden>
+
+        <button id="auth-button">Войти</button>
+        <p class="toggle" id="toggle-form">Нет аккаунта? Зарегистрироваться</p>
+    </div>
+    <script>
+        const authContainer = document.getElementById("auth-container");
+        const formTitle = document.getElementById("form-title");
+        const authButton = document.getElementById("auth-button");
+        const toggleForm = document.getElementById("toggle-form");
+        const username = document.getElementById('username')
+        let isLogin = true;
+
+        toggleForm.addEventListener("click", () => {
+            isLogin = !isLogin;
+            formTitle.textContent = isLogin ? "Вход" : "Регистрация";
+            authButton.textContent = isLogin ? "Войти" : "Зарегистрироваться";
+            toggleForm.textContent = isLogin ? "Нет аккаунта? Зарегистрироваться" : "Уже есть аккаунт? Войти";
+            username.toggleAttribute('hidden');
+            username.toggleAttribute('disabled');
+        });
+
+        authButton.addEventListener("click", async () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const name = username.value;
+            const endpoint = isLogin ? "/api/auth/login" : "/api/auth/register";
+            
+            if (!email || !password) {
+                alert("Заполните все поля!");
+                return;
+            }
+            
+            var response;
+            if (!isLogin)
+                response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username: name, email, password })
+                });
+            else 
+                response = await fetch(endpoint, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+
+            const data = await response.json();
+            console.log(data)
+            if (response.ok) {
+                localStorage.setItem("token", data.token);
+                window.location.href = "/tasks.html";
+            } else {
+                alert(data.message || "Ошибка!");
+            }
+        });
+    </script>
+    <script src="auth.js"></script>
+
+</body>
+</html>
